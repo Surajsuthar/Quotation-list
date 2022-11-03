@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Quatation</title>
+    
+    <link href="styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="content">
+        <img src="slides/q1.jpg" alt="slideshow image" width="400px" height="266px" id="image">
+    </div>
+
+    <p id="links"><a href="#" id="previous">previous</a><a href="#" id="next">next</a></p>
+
+    <script>
+        var currentImage=0;
+        var myPhotos=['q1.jpg','q2.png','q3.png','q4.jpg','q5.jpg'];
+        //var container=document.getElementById('content');
+        document.getElementById('next').onclick=next;
+        document.getElementById('previous').onclick=previous;
+
+        function next()
+        {
+            currentImage++;
+            if(currentImage>4){ currentImage=0; }
+            document.getElementById('image').src=`slides/${myPhotos[currentImage]}`;
+        }
+
+        function previous()
+        {
+            currentImage--;
+            if(currentImage<0){ currentImage=4; }
+            document.getElementById('image').src=`slides/${myPhotos[currentImage]}`;
+        }
+       /* nextBtn.addEventListener('onclick',function(event){
+            event.preventDefault();
+            currentImage++;
+            if(currentImage>myPhotos.length-1) {
+                currentImage=0;
+                document.getElementById('myimage').src=myPhotos[currentImage];
+            }
+
+            //var newSlide=document.createElement('img');
+            //newSlide.src='slides/${myPhotos[currentImage]}';
+            //newSlide.className='fadeinimg';
+            //container.appendChild('newSlide');
+        })
+        previousBtn.addEventListener('onclick',function(event){
+            event.preventDefault();
+            currentImage--;
+            if(currentImage<0)
+            {
+                currentImage=myPhotos.length-1;
+                document.getElementById('myimage').src=myPhotos[currentImage];
+            }
+
+            
+        }) */
+
+    </script>
+
+</body>
+
+</html>
